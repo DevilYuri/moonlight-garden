@@ -1,0 +1,67 @@
+/* Компактное модальное окно */
+.modal-large { max-width: 650px !important; width: 90% !important; }
+.modal-tabs { display: flex; gap: 5px; margin-bottom: 20px; border-bottom: 1px solid #333; flex-wrap: wrap; }
+.modal-tab { padding: 8px 16px; cursor: pointer; border-radius: 8px 8px 0 0; font-size: 13px; }
+.modal-tab.active { background: #f8d56b; color: #000; }
+.modal-tab-content { display: none; min-height: 350px; }
+.modal-tab-content.active { display: block; }
+
+/* Сетка столиков */
+.tables-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; margin-top: 15px; max-height: 380px; overflow-y: auto; padding: 5px; }
+.table-card { background: #1a1a2e; border-radius: 12px; padding: 10px; text-align: center; cursor: pointer; border: 2px solid transparent; transition: all 0.2s; }
+.table-card.available { border-color: #4caf50; }
+.table-card.booked { border-color: #f44336; opacity: 0.5; cursor: not-allowed; }
+.table-card.selected { border-color: #f8d56b; background: rgba(248,213,107,0.15); transform: scale(1.02); }
+.table-number { font-size: 16px; font-weight: bold; }
+.table-name { font-size: 11px; color: #f8d56b; margin-top: 3px; }
+.table-capacity { font-size: 10px; margin-top: 5px; opacity: 0.7; }
+.table-status { font-size: 9px; margin-top: 6px; padding: 2px 6px; border-radius: 20px; display: inline-block; }
+.status-available { background: #4caf50; color: white; }
+.status-booked { background: #f44336; color: white; }
+.vip-grid { background: rgba(255,158,198,0.05); padding: 10px; border-radius: 15px; margin-top: 15px; }
+.vip-badge { position: absolute; top: 5px; right: 5px; font-size: 9px; background: #ff9ec6; color: #000; padding: 2px 6px; border-radius: 10px; }
+.vip-card { position: relative; background: linear-gradient(135deg, rgba(255,158,198,0.1), rgba(199,146,234,0.05)); }
+
+/* Форма */
+#bookingForm input, #bookingForm select { width: 100%; padding: 12px; margin-bottom: 12px; background: #0a0a1a; border: 1px solid #333; border-radius: 8px; color: white; }
+.guests-selector { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0; background: #0a0a1a; padding: 10px; border-radius: 8px; border: 1px solid #333; }
+.guests-btn { width: 40px; height: 40px; border-radius: 8px; background: #1a1a2e; border: none; color: white; font-size: 20px; cursor: pointer; }
+.guests-value { font-size: 20px; font-weight: bold; min-width: 40px; text-align: center; }
+.form-submit { width: 100%; padding: 14px; background: #f8d56b; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 10px; }
+.form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+.selected-table-info { background: rgba(248,213,107,0.1); border-radius: 10px; padding: 12px; margin-bottom: 15px; text-align: center; }
+
+/* Календарь */
+.calendar-container { background: #0a0a1a; border-radius: 15px; padding: 15px; }
+.calendar-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+.calendar-nav-btn { background: none; border: 1px solid #f8d56b; color: #f8d56b; padding: 5px 12px; border-radius: 20px; cursor: pointer; }
+.calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+.calendar-weekday { text-align: center; padding: 8px; font-size: 12px; color: #f8d56b; }
+.calendar-day { text-align: center; padding: 10px; border-radius: 8px; cursor: pointer; background: #1a1a2e; font-size: 13px; }
+.calendar-day.selected { background: #f8d56b; color: #000; }
+.calendar-day.empty { background: transparent; cursor: default; }
+
+/* Новости */
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; margin-top: 30px; }
+.news-card { background: rgba(26,26,46,0.9); border-radius: 16px; overflow: hidden; border: 1px solid rgba(248,213,107,0.2); transition: 0.3s; }
+.news-card:hover { transform: translateY(-5px); border-color: #f8d56b; }
+.news-icon { font-size: 40px; text-align: center; padding: 20px 0 5px; color: #f8d56b; }
+.news-content { padding: 0 20px 20px; }
+.news-date { font-size: 12px; color: #f8d56b; margin-bottom: 10px; }
+.news-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; color: #fff; }
+.news-text { font-size: 13px; opacity: 0.8; line-height: 1.5; margin-bottom: 15px; }
+.news-badge { font-size: 11px; background: rgba(248,213,107,0.15); padding: 4px 12px; border-radius: 20px; display: inline-block; }
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .tables-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+    .modal-large { width: 95% !important; }
+    .calendar-day { padding: 6px; font-size: 11px; }
+}
+
+/* Анимация успеха */
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); opacity: 1; }
+}
